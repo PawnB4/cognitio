@@ -6,8 +6,7 @@
     "dev": "tsx watch src/index.ts",
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
-    "build": "tsc",
-    "start": "node src/index.js"
+    "start": "npx tsx src/index.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.1",
