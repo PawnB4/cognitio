@@ -1,4 +1,4 @@
-import type { AppType } from '../../../src/app'
+import type { AppType } from '../../../server/app'
 import { hc } from 'hono/client'
 
 const client = hc<AppType>("/")

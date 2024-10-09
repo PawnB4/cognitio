@@ -3,10 +3,10 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch server/index.ts",
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
-    "start": "tsx src/index.ts",
+    "start": "tsx server/index.ts",
     "postinstall": "cd frontend && npm install && npm run build"
   },
   "dependencies": {

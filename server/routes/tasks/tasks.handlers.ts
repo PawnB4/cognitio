@@ -1,5 +1,4 @@
-import type { AppRouteHandler } from "@/lib/types";
-
+import type { AppRouteHandler } from "../../lib/types";
 import type { CreateRoute, ListRoute } from "./tasks.routes";
 
 export const getAllTasksHandler: AppRouteHandler<ListRoute> = async (c) => {
