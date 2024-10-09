@@ -20,7 +20,7 @@ export const LandingCarousel = () => {
                         delay: 5000
                     })
                 ]}
-                className="w-full md:w-[600px] shadow-sm rounded-md"
+                className="w-full shadow-sm rounded-md"
             >
                 <CarouselContent>
                     <CarouselItem>

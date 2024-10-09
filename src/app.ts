@@ -1,24 +1,24 @@
 import { serveStatic } from "@hono/node-server/serve-static";
 
-import index from "@/routes/index.route";
-import tasks from "@/routes/tasks/tasks.index";
-
 import configureOpenAPI from "./lib/configure-open-api";
-import { createApp } from "./lib/create-app";
+import { createApp, createRouter } from "./lib/create-app";
+import { createTaskHandler, getAllTasksHandler } from "./routes/tasks/tasks.handlers";
+import { createTaskRoute, getAllTasksRoute } from "./routes/tasks/tasks.routes";
 
 const app = createApp();
 
-const routes = [
-  index,
-  tasks,
-];
-
 configureOpenAPI(app);
 
-routes.forEach((route) => {
-  app.route("/api", route);
-});
+const taskRouter = createRouter()
+  .openapi(getAllTasksRoute, getAllTasksHandler)
+  .openapi(createTaskRoute, createTaskHandler);
+
+const _routes = app
+  .get("/api", c => c.json({ message: "Cognitio API" }))
+  .route("/api", taskRouter);
 
 app.get("*", serveStatic({ root: "./frontend/dist" }));
+
+export type AppType = typeof _routes;
 
 export default app;
